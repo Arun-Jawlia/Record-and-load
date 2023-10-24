@@ -1,0 +1,17 @@
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+video {
+    max-width: 100%;
+}
+
+button {
+    margin: 10px;
+}
+
+canvas {
+    display: none;
+}
