@@ -8,7 +8,7 @@ const stopRecordingButton = document.getElementById("stopRecording");
 // const downloadLink = document.getElementById("download-link");
 const downloadVideoLink = document.getElementById("download-video");
 // const canvas = document.getElementById("canvas");
-const timerDisplay = document.getElementById('timer')
+const timerDisplay = document.getElementById("timer");
 
 let mediaStream;
 let mediaRecorder;
@@ -16,12 +16,12 @@ let recordedChunks = [];
 // let capturedImage = null;
 let timerInterval;
 let recording = false;
-let seconds = 0
+let seconds = 0;
 // captureImageButton.style.display = "none";
 startRecordingButton.style.display = "none";
 stopRecordingButton.style.display = "none";
 downloadVideoLink.style.display = "none";
-stopCameraButton.disabled = true
+stopCameraButton.disabled = true;
 
 // Function to start the camera
 const startCamera = async () => {
@@ -35,8 +35,8 @@ const startCamera = async () => {
     // captureImageButton.style.display = "block";
     startRecordingButton.style.display = "block";
     stopRecordingButton.style.display = "block";
-    stopCameraButton.disabled = false
-    startCameraButton.disabled = true
+    stopCameraButton.disabled = false;
+    startCameraButton.disabled = true;
   } catch (error) {
     console.error("Error accessing the camera:", error);
   }
@@ -47,9 +47,9 @@ const stopCamera = async () => {
   stopRecordingButton.style.display = "none";
   camera.srcObject = null;
   startCameraButton.disabled = false;
-  stopCameraButton.disabled = true
+  stopCameraButton.disabled = true;
   downloadVideoLink.style.display = "none";
-  timerDisplay.innerText=''
+  timerDisplay.innerText = "00:00:00";
 };
 
 startCameraButton.addEventListener("click", startCamera);
@@ -73,12 +73,13 @@ const startRecording = () => {
       downloadVideoLink.href = videoUrl;
       downloadVideoLink.download = `${Date.now()}recorded-video.mp4`;
       recording = false;
+      alert('Your video is ready to download')
     };
     mediaRecorder.start();
     recording = true;
     startRecordingButton.disabled = true;
     stopRecordingButton.disabled = false;
-    stopCameraButton.disabled = true
+    stopCameraButton.disabled = true;
     // captureImageButton.style.display = "none";
     startTimer();
   } else {
@@ -92,12 +93,12 @@ startRecordingButton.addEventListener("click", startRecording);
 const stopRecording = () => {
   if (mediaRecorder && mediaRecorder.state === "recording") {
     mediaRecorder.stop();
-    clearInterval(timerInterval)
-    timerInterval = null
-    recording = false
+    clearInterval(timerInterval);
+    timerInterval = null;
+    recording = false;
     stopRecordingButton.disabled = true;
     startRecordingButton.disabled = false;
-    stopCameraButton.disabled = false
+    stopCameraButton.disabled = false;
     // captureImageButton.style.display = "block";
   }
 };
@@ -118,31 +119,31 @@ const startTimer = () => {
     seconds = 0;
 
     timerInterval = setInterval(() => {
-        seconds++;
-        
-        if (seconds === 60) {
-            seconds = 0;
-            minutes++;
-        }
+      seconds++;
 
-        if (minutes === 60) {
-            minutes = 0;
-            hours++;
-        }
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+      }
 
-        const formattedHours = hours.toString().padStart(2, '0');
-        const formattedMinutes = minutes.toString().padStart(2, '0');
-        const formattedSeconds = seconds.toString().padStart(2, '0');
-        
-        const formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-        timerDisplay.innerText = formattedTime;
+      if (minutes === 60) {
+        minutes = 0;
+        hours++;
+      }
+
+      const formattedHours = hours.toString().padStart(2, "0");
+      const formattedMinutes = minutes.toString().padStart(2, "0");
+      const formattedSeconds = seconds.toString().padStart(2, "0");
+
+      const formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+      timerDisplay.innerText = formattedTime;
     }, 1000);
-}
+  }
 
   // timerInterval = setInterval(() => {
   //   seconds++;
   //   updateTimerDisplay(seconds);
-  //   console.log(`Recording time: ${seconds} 
+  //   console.log(`Recording time: ${seconds}
   //   seconds`);
   // }, 1000);
 };

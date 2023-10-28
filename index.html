@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video Capture App</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -15,11 +19,28 @@
         <span id="timer">00:00:00</span>
       </div>
       <div class="video-controls">
-        <button id="startCamera">Start</button>
-        <button id="stopCamera">Stop</button>
-        <button id="startRecording">Record</button>
-        <button id="stopRecording">Stop</button>
-        <a class="download-button" id="download-video">Download Video</a>
+        <div class="video-control-left">
+          <button class="flex" id="startCamera">
+            <i class="uil uil-camera"></i><span>Start Camera</span>
+          </button>
+          <button class="flex" id="stopCamera">
+            <i class="uil uil-camera-slash"></i><span>Stop Camera</span>
+          </button>
+          <!-- <button id="stopMic"><i class="uil uil-microphone"></i> <span>Mic</span></button> -->
+        </div>
+        <div class="video-control-center">
+          <button class="flex" id="startRecording">
+            <i class="uil uil-video"></i><span>Record</span>
+          </button>
+          <button class="flex" id="stopRecording">
+            <i class="uil uil-record-audio"></i> <span>Stop Record</span>
+          </button>
+        </div>
+        <div class="video-control-right">
+          <a class="download-button button flex" id="download-video"
+            ><span>Download</span><i class="uil uil-import"></i
+          ></a>
+        </div>
       </div>
       <!-- <div class="image-capture-box">
         <button id="capture-button" class="camera-button">Capture Image</button>
