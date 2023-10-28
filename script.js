@@ -4,20 +4,20 @@ const startCameraButton = document.getElementById("startCamera");
 const stopCameraButton = document.getElementById("stopCamera");
 const startRecordingButton = document.getElementById("startRecording");
 const stopRecordingButton = document.getElementById("stopRecording");
-const captureImageButton = document.getElementById("capture-button");
-const downloadLink = document.getElementById("download-link");
+// const captureImageButton = document.getElementById("capture-button");
+// const downloadLink = document.getElementById("download-link");
 const downloadVideoLink = document.getElementById("download-video");
-const canvas = document.getElementById("canvas");
+// const canvas = document.getElementById("canvas");
 const timerDisplay = document.getElementById('timer')
 
 let mediaStream;
 let mediaRecorder;
 let recordedChunks = [];
-let capturedImage = null;
+// let capturedImage = null;
 let timerInterval;
 let recording = false;
 let seconds = 0
-captureImageButton.style.display = "none";
+// captureImageButton.style.display = "none";
 startRecordingButton.style.display = "none";
 stopRecordingButton.style.display = "none";
 downloadVideoLink.style.display = "none";
@@ -32,7 +32,7 @@ const startCamera = async () => {
     });
     mediaStream = stream;
     camera.srcObject = stream;
-    captureImageButton.style.display = "block";
+    // captureImageButton.style.display = "block";
     startRecordingButton.style.display = "block";
     stopRecordingButton.style.display = "block";
     stopCameraButton.disabled = false
@@ -42,13 +42,14 @@ const startCamera = async () => {
   }
 };
 const stopCamera = async () => {
-  captureImageButton.style.display = "none";
+  // captureImageButton.style.display = "none";
   startRecordingButton.style.display = "none";
   stopRecordingButton.style.display = "none";
   camera.srcObject = null;
   startCameraButton.disabled = false;
   stopCameraButton.disabled = true
   downloadVideoLink.style.display = "none";
+  timerDisplay.innerText=''
 };
 
 startCameraButton.addEventListener("click", startCamera);
@@ -77,7 +78,8 @@ const startRecording = () => {
     recording = true;
     startRecordingButton.disabled = true;
     stopRecordingButton.disabled = false;
-    captureImageButton.style.display = "none";
+    stopCameraButton.disabled = true
+    // captureImageButton.style.display = "none";
     startTimer();
   } else {
     alert("Error accessing the camera:");
@@ -95,7 +97,8 @@ const stopRecording = () => {
     recording = false
     stopRecordingButton.disabled = true;
     startRecordingButton.disabled = false;
-    captureImageButton.style.display = "block";
+    stopCameraButton.disabled = false
+    // captureImageButton.style.display = "block";
   }
 };
 
@@ -150,21 +153,21 @@ const startTimer = () => {
 // };
 
 // Function to capture an image
-const captureImage = () => {
-  const context = canvas.getContext("2d");
-  context.drawImage(camera, 0, 0, canvas.width, canvas.height);
+// const captureImage = () => {
+//   const context = canvas.getContext("2d");
+//   context.drawImage(camera, 0, 0, canvas.width, canvas.height);
 
-  if (capturedImage) {
-    URL.revokeObjectURL(capturedImage);
-  }
+//   if (capturedImage) {
+//     URL.revokeObjectURL(capturedImage);
+//   }
 
-  canvas.toBlob((blob) => {
-    console.log(blob);
-    const url = URL.createObjectURL(blob);
-    downloadLink.href = url;
-    downloadLink.style.display = "inline";
-    downloadLink.download = ` ${Date.now()}  `;
-  });
-};
+//   canvas.toBlob((blob) => {
+//     console.log(blob);
+//     const url = URL.createObjectURL(blob);
+//     downloadLink.href = url;
+//     downloadLink.style.display = "inline";
+//     downloadLink.download = ` ${Date.now()}  `;
+//   });
+// };
 
-captureImageButton.addEventListener("click", captureImage);
+// captureImageButton.addEventListener("click", captureImage);

@@ -8,27 +8,29 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Camera App</h1>
-   <div id="video-player">
-    <video id="camera" autoplay></video>
-    <div >Recording Time: <span id="timer">00:00</span> </div>
-   </div>
-    <div class="videoElement">
-      <button id="startCamera">Start Camera</button>
-      <button id="stopCamera">Stop Camera</button>
-      <button id="startRecording">Start Recording</button>
-      <button id="stopRecording">Stop Recording</button>
-      <a class="download-button" id="download-video">Download Video</a>
+    <div class="video-container">
+      <div class="video-header">Zoom Meeting</div>
+      <div class="video-player">
+        <video id="camera" autoplay></video>
+        <span id="timer">00:00:00</span>
+      </div>
+      <div class="video-controls">
+        <button id="startCamera">Start</button>
+        <button id="stopCamera">Stop</button>
+        <button id="startRecording">Record</button>
+        <button id="stopRecording">Stop</button>
+        <a class="download-button" id="download-video">Download Video</a>
+      </div>
+      <!-- <div class="image-capture-box">
+        <button id="capture-button" class="camera-button">Capture Image</button>
+        <canvas id="canvas"></canvas>
+        <a
+          id="download-link"
+          class="download-button"
+          style="display: none"
+          download=""
+          >Download Image</a>
+      </div> -->
     </div>
-
-    <button id="capture-button" class="camera-button">Capture Image</button>
-    <canvas id="canvas"></canvas>
-    <a
-      id="download-link"
-      class="download-button"
-      style="display: none"
-      download=""
-      >Download Image</a
-    >
   </body>
 </html>
