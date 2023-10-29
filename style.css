@@ -9,8 +9,9 @@ body {
 }
 
 .video-container {
-  height: 100vh;
+  height:fit-content;
   width: 100%;
+
 }
 
 .video-header {
@@ -134,16 +135,31 @@ button:hover {
 .floating-download {
   position: absolute;
   top: 40%;
-  width: 200px;
+  width: 300px;
   height: 100px;
   color: white;
   padding: 1rem;
-  /* display: none; */
+  display: none;
   background-color: #0f0f0f;
   border-radius: 10px;
   z-index: 5;
+  transition: all 0.5s ease-out;
 }
 
+.floating-download.show{
+  display: block;
+}
+
+
+.floating-download>div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.floating-download>div .uil{
+  cursor: pointer;
+}
 
 
 /*   h1 {
@@ -199,3 +215,17 @@ button:hover {
 .download-button:hover {
     background-color: #45a049;
 } */
+
+
+
+
+@media all and (max-width:430px) {
+  .floating-download{
+    width: 80%;
+  }
+
+  .video-controls>div{
+    flex-wrap: wrap;
+  }
+  
+}
