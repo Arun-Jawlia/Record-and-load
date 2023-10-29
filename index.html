@@ -30,10 +30,10 @@
         <span id="timer">00:00:00</span>
       </div>
 
-
-
       <!-- Video Controls -->
       <div class="video-controls">
+
+        <!-- Left Control Start Camera , Stop Camera and Mic -->
         <div class="video-control-left">
           <button class="flex" id="startCamera">
             <i class="uil uil-camera"></i><span>Start Camera</span>
@@ -41,8 +41,12 @@
           <button class="flex" id="stopCamera">
             <i class="uil uil-camera-slash"></i><span>Stop Camera</span>
           </button>
-          <button id="audio-toggle"><i class="uil uil-microphone"></i> <span>Mic off</span></button>
+          <button id="audio-toggle">
+            <i class="uil uil-microphone"></i> <span>Mic off</span>
+          </button>
         </div>
+
+        <!-- Video control center Record video and stop recording -->
         <div class="video-control-center">
           <button class="flex" id="startRecording">
             <i class="uil uil-video"></i><span>Record</span>
@@ -51,13 +55,13 @@
             <i class="uil uil-record-audio"></i> <span>Stop Record</span>
           </button>
           <div class="floating-download">
-            <div >
-              <p>Your video is ready to download</p> 
+            <div>
+              <p>Your video is ready to download</p>
               <i class="uil uil-multiply"></i>
             </div>
-            <a class="download-button button flex " id="download-video"
-            ><i class="uil uil-import"></i><span>Download</span></a
-          >
+            <a class="download-button button flex" id="download-video"
+              ><i class="uil uil-import"></i><span>Download</span></a
+            >
           </div>
         </div>
       </div>

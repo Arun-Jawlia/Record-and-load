@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap");
 
 body {
-  font-family:  "Poppins" sans-serif;
+  font-family: "Poppins" sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,9 +9,8 @@ body {
 }
 
 .video-container {
-  height:fit-content;
+  height: fit-content;
   width: 100%;
-
 }
 
 .video-header {
@@ -32,10 +31,6 @@ body {
   z-index: 2;
 }
 
-video {
-  background-color: #0f0f0f;
-}
-
 .flex {
   display: flex;
   align-items: center;
@@ -48,13 +43,6 @@ video {
   gap: 1rem;
   align-items: center;
   justify-content: center;
-}
-
-#startRecording {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .video-controls {
@@ -146,21 +134,19 @@ button:hover {
   transition: all 0.5s ease-out;
 }
 
-.floating-download.show{
+.floating-download.show {
   display: block;
 }
 
-
-.floating-download>div{
+.floating-download > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.floating-download>div .uil{
+.floating-download > div .uil {
   cursor: pointer;
 }
-
 
 /*   h1 {
     color: #333;
@@ -216,16 +202,12 @@ button:hover {
     background-color: #45a049;
 } */
 
-
-
-
-@media all and (max-width:430px) {
-  .floating-download{
+@media all and (max-width: 430px) {
+  .floating-download {
     width: 80%;
   }
 
-  .video-controls>div{
+  .video-controls > div {
     flex-wrap: wrap;
   }
-  
 }
