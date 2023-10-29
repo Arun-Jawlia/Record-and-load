@@ -1,127 +1,152 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap");
 
 body {
-    font-family: "Rubik", "Poppins" sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  font-family:  "Poppins" sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0f0f0f;
+}
 
-  .video-container{
-    height: 100vh;
-    width: 100%;
-  }
+.video-container {
+  height: 100vh;
+  width: 100%;
+}
 
-  .video-header{
-    padding: 0.5rem;
-  }
+.video-header {
+  height: 15vh;
+  color: white;
+  text-align: center;
+}
 
-  .video-player{
-    height: fit-content;
-    padding: 0.5rem;
-    height: 80vh;
-    position: relative;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-  }
+.logo {
+  height: 100%;
+}
+.video-player {
+  height: fit-content;
+  padding: 0.5rem;
+  height: 70vh;
+  position: relative;
+  background-color: #0f0f0f;
+  z-index: 2;
+}
 
-  .video-controls{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0.5rem;
-    gap: 1rem;
-  }
+video {
+  background-color: #0f0f0f;
+}
 
-  .flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
-  .video-control-left{
-    display: flex;
-    gap: 1rem;
-  }
+.video-control-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#startRecording {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.video-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-control-center {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+#camera {
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: auto;
+  background-color: #333;
+  /* transform: scaleX(-1); Flip the video horizontally */
+}
+
+button {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 105px;
+  text-align: center;
+}
+.button {
+  background-color: blue;
+  width: 105px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #393737;
+}
+
+.uil {
+  font-size: 16px;
+  /* display: block; */
+}
+
+.video-controls span {
+  font-size: 8px;
+}
+
+.floating-download {
+  position: absolute;
+  top: 40%;
+  width: 200px;
+  height: 100px;
+  color: white;
+  padding: 1rem;
+  /* display: none; */
+  background-color: #0f0f0f;
+  border-radius: 10px;
+  z-index: 5;
+}
 
 
 
-  .video-control-center
-  {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #timer{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  #camera {
-   width: 100%;
-   height: 100%;
-   border: 2px solid white;
-   border-radius: 5px;
-   margin: auto;
-   background-color: #333;
-   /* transform: scaleX(-1); Flip the video horizontally */
-  } 
-
-  button{
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-  .button{
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  a{
-    text-decoration: none;
-
-  }
-
-
-
-  button:disabled {
-    background-color: #999;
-    cursor: not-allowed;
-  }
-
-
-  .uil{
-    font-size: 16px;
-    /* display: block; */
-
-  }
-
-
-  .uil~span{
-    font-size:8px;
-  }
-
-/*   
-
-
-
-  h1 {
+/*   h1 {
     color: #333;
   }
 

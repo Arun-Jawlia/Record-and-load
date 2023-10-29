@@ -4,43 +4,51 @@ const startCameraButton = document.getElementById("startCamera");
 const stopCameraButton = document.getElementById("stopCamera");
 const startRecordingButton = document.getElementById("startRecording");
 const stopRecordingButton = document.getElementById("stopRecording");
-// const captureImageButton = document.getElementById("capture-button");
-// const downloadLink = document.getElementById("download-link");
 const downloadVideoLink = document.getElementById("download-video");
-// const canvas = document.getElementById("canvas");
 const timerDisplay = document.getElementById("timer");
+const audioToggle = document.getElementById("audio-toggle");
+const floatingDownload = document.querySelector(".floating-download");
+// const canvas = document.getElementById("canvas");
+// const downloadLink = document.getElementById("download-link");
+// const captureImageButton = document.getElementById("capture-button");
 
 let mediaStream;
 let mediaRecorder;
 let recordedChunks = [];
-// let capturedImage = null;
 let timerInterval;
 let recording = false;
 let seconds = 0;
+// let capturedImage = null;
+let audioEnable = true;
+
 // captureImageButton.style.display = "none";
 startRecordingButton.style.display = "none";
 stopRecordingButton.style.display = "none";
 downloadVideoLink.style.display = "none";
 stopCameraButton.disabled = true;
+audioToggle.style.display = "none";
 
 // Function to start the camera
 const startCamera = async () => {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: true,
+      audio: audioEnable,
     });
     mediaStream = stream;
     camera.srcObject = stream;
     // captureImageButton.style.display = "block";
-    startRecordingButton.style.display = "block";
-    stopRecordingButton.style.display = "block";
+    startRecordingButton.style.display = "flex";
+    stopRecordingButton.style.display = "flex";
     stopCameraButton.disabled = false;
     startCameraButton.disabled = true;
+    audioToggle.style.display = "block";
   } catch (error) {
     console.error("Error accessing the camera:", error);
   }
 };
+
+// Function to stop the camera
 const stopCamera = async () => {
   // captureImageButton.style.display = "none";
   startRecordingButton.style.display = "none";
@@ -69,11 +77,14 @@ const startRecording = () => {
     mediaRecorder.onstop = () => {
       const blob = new Blob(recordedChunks, { type: "video/mp4" });
       const videoUrl = URL.createObjectURL(blob);
-      downloadVideoLink.style.display = "block";
-      downloadVideoLink.href = videoUrl;
-      downloadVideoLink.download = `${Date.now()}recorded-video.mp4`;
-      recording = false;
-      alert('Your video is ready to download')
+      setTimeout(() => {
+        alert("Your video is in progress...");
+        floatingDownload.style.display = 'block'
+        downloadVideoLink.style.display = "flex";
+        downloadVideoLink.href = videoUrl;
+        downloadVideoLink.download = `${Date.now()}recorded-video.mp4`;
+        recording = false;
+      }, 1000);
     };
     mediaRecorder.start();
     recording = true;
@@ -87,8 +98,6 @@ const startRecording = () => {
   }
 };
 
-startRecordingButton.addEventListener("click", startRecording);
-
 // Function to stop video recording
 const stopRecording = () => {
   if (mediaRecorder && mediaRecorder.state === "recording") {
@@ -101,14 +110,6 @@ const stopRecording = () => {
     stopCameraButton.disabled = false;
     // captureImageButton.style.display = "block";
   }
-};
-
-stopRecordingButton.addEventListener("click", stopRecording);
-
-// Function to update and display the timer
-const updateTimerDisplay = (seconds) => {
-  // const timerElement = document.getElementById("timer");
-  timerElement.textContent = `Recording time: ${seconds} seconds`;
 };
 
 // Function to start a timer
@@ -139,13 +140,17 @@ const startTimer = () => {
       timerDisplay.innerText = formattedTime;
     }, 1000);
   }
+};
 
-  // timerInterval = setInterval(() => {
-  //   seconds++;
-  //   updateTimerDisplay(seconds);
-  //   console.log(`Recording time: ${seconds}
-  //   seconds`);
-  // }, 1000);
+const toggleAudio = () => {
+  console.log(audioToggle.innerText);
+  if (audioEnable) {
+    audioToggle.innerText = "Mic on";
+    audioEnable = false;
+  } else {
+    audioToggle.innerText = "Mic off";
+    audioEnable = true;
+  }
 };
 
 // Function to stop the timer
@@ -172,3 +177,10 @@ const startTimer = () => {
 // };
 
 // captureImageButton.addEventListener("click", captureImage);
+
+// Function invocation
+startCameraButton.addEventListener("click", startCamera);
+stopCameraButton.addEventListener("click", stopCamera);
+startRecordingButton.addEventListener("click", startRecording);
+stopRecordingButton.addEventListener("click", stopRecording);
+audioToggle.addEventListener("click", toggleAudio);
