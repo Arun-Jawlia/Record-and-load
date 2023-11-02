@@ -148,59 +148,6 @@ button:hover {
   cursor: pointer;
 }
 
-/*   h1 {
-    color: #333;
-  }
-
-  #video-player{
-    padding: 1rem;
-
-  }
-  
-
-  .videoElement{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .videoElement button{
-    background-color: blue;
-    color: white;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-
-  
-
-
-  .download-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.download-button:hover {
-    background-color: #45a049;
-} */
 
 @media all and (max-width: 430px) {
   .floating-download {
