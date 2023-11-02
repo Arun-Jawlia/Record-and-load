@@ -1,4 +1,4 @@
-// Get HTML elements
+// All Elements
 const camera = document.getElementById("camera");
 const startCameraButton = document.getElementById("startCamera");
 const stopCameraButton = document.getElementById("stopCamera");
@@ -8,7 +8,7 @@ const downloadVideoLink = document.getElementById("download-video");
 const timerDisplay = document.getElementById("timer");
 const audioToggle = document.getElementById("audio-toggle");
 const floatingDownload = document.querySelector(".floating-download");
-const closeFloatingDownload = document.querySelector(".uil-multiply")
+const closeFloatingDownload = document.querySelector(".uil-multiply");
 // const canvas = document.getElementById("canvas");
 // const downloadLink = document.getElementById("download-link");
 // const captureImageButton = document.getElementById("capture-button");
@@ -80,7 +80,7 @@ const startRecording = () => {
       const videoUrl = URL.createObjectURL(blob);
       setTimeout(() => {
         alert("Your video is in progress...");
-        floatingDownload.classList.add('show')
+        floatingDownload.classList.add("show");
         downloadVideoLink.style.display = "flex";
         downloadVideoLink.href = videoUrl;
         downloadVideoLink.download = `${Date.now()}recorded-video.mp4`;
@@ -185,8 +185,7 @@ stopCameraButton.addEventListener("click", stopCamera);
 startRecordingButton.addEventListener("click", startRecording);
 stopRecordingButton.addEventListener("click", stopRecording);
 audioToggle.addEventListener("click", toggleAudio);
-closeFloatingDownload.addEventListener('click', ()=>
-{
-  console.log("Hidden")
-  floatingDownload.classList.remove('show')
-})
+closeFloatingDownload.addEventListener("click", () => {
+  console.log("Hidden");
+  floatingDownload.classList.remove("show");
+});
